@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HandAnalyser
+namespace HandAnalyser.Test
 {
-    public class Class1
+    /// <summary>
+    /// This models the values of a card
+    /// </summary>
+    class CardModel
     {
+
     }
 }
