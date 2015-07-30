@@ -1,9 +1,12 @@
-﻿namespace HandAnalyser
+﻿using System;
+using System.Diagnostics.Contracts;
+
+namespace HandAnalyser
 {
     /// <summary>
     /// Represents a playing card with a value and suit
     /// </summary>
-    public class Card
+    public class Card 
     {
         private  int _value;
         private  int _suit;
@@ -15,23 +18,43 @@
         /// <param name="suit"></param>
         public Card(int value, int suit)
         {
-            _value = value;
-            _suit = suit;
+            Contract.Requires(value>0);
+            //Contract.Requires(value <= 12);
+            //Contract.Requires(suit>0);
+            //Contract.Requires(suit <= 4);
+            
+            Value = value;
+            Suit = suit;
         }
 
         /// <summary>
         /// Gets or sets the value of the card between 1 and 12
         /// </summary>
-        public int Value { get { return _value; }
-            set { _value = value; }
+        public int Value
+        {
+            get { return _value; }
+            set
+            {
+                if (value < 1 || value > 12) throw new ArgumentOutOfRangeException();
+                _value = value;
+            }
         }
 
         /// <summary>
         /// Gets or sets the suit of the card
         /// </summary>
         public int Suit  {
-            get { return _suit;}
-            set { _suit = value; }
+            get
+            {
+                return _suit;
+            }
+            set
+            {
+                //Contract.Requires(value > 0);
+                //Contract.Requires(value <= 4);
+                if (value < 1 || value > 4) throw new ArgumentOutOfRangeException();
+                _suit = value;
+            }
         }
     }
 }
