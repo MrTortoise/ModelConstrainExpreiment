@@ -104,10 +104,14 @@
     <Compile Include="CardModel.CardHasValueAndSuitInRange.g.cs">
       <DependentUpon>CardModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="CardModel.ComparableImplementationForSorting.g.cs">
+      <DependentUpon>CardModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="CardModel.cs" />
     <Compile Include="CardModel.TestIf2CardsEqualValue.g.cs">
       <DependentUpon>CardModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factories\CardFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\PexAssemblyInfo.cs" />
   </ItemGroup>

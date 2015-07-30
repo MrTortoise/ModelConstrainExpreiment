@@ -6,7 +6,7 @@ namespace HandAnalyser
     /// <summary>
     /// Represents a playing card with a value and suit
     /// </summary>
-    public class Card 
+    public class Card : IComparable
     {
         private  int _value;
         private  int _suit;
@@ -60,6 +60,27 @@ namespace HandAnalyser
         public bool EqualValue(Card rhs)
         {
             return rhs != null && this.Value == rhs.Value;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Card rhs = obj as Card;
+            if (rhs == null)
+            {
+                return 1;
+            }
+
+            if (Value > rhs.Value)
+            {
+                return 1;
+            }
+
+            if (EqualValue(rhs))
+            {
+                return 0;
+            }
+
+            return -1;
         }
     }
 
