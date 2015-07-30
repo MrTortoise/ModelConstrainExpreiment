@@ -18,11 +18,6 @@ namespace HandAnalyser
         /// <param name="suit"></param>
         public Card(int value, int suit)
         {
-            Contract.Requires(value>0);
-            //Contract.Requires(value <= 12);
-            //Contract.Requires(suit>0);
-            //Contract.Requires(suit <= 4);
-            
             Value = value;
             Suit = suit;
         }
@@ -35,7 +30,8 @@ namespace HandAnalyser
             get { return _value; }
             set
             {
-                if (value < 1 || value > 12) throw new ArgumentOutOfRangeException();
+                if (value < 1) throw new ArgumentOutOfRangeException(nameof(value),value,"value must be > 0");
+                if (value > 12) throw new ArgumentOutOfRangeException(nameof(value), value, "value must be < 13");
                 _value = value;
             }
         }
@@ -50,9 +46,8 @@ namespace HandAnalyser
             }
             set
             {
-                //Contract.Requires(value > 0);
-                //Contract.Requires(value <= 4);
-                if (value < 1 || value > 4) throw new ArgumentOutOfRangeException();
+                if (value < 1) throw new ArgumentOutOfRangeException(nameof(value), value, "suit must be > 0");
+                if (value > 4) throw new ArgumentOutOfRangeException(nameof(value), value, "suit must be < 5");
                 _suit = value;
             }
         }
