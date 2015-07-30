@@ -56,5 +56,12 @@ namespace HandAnalyser
                 _suit = value;
             }
         }
+
+        public bool EqualValue(Card rhs)
+        {
+            return rhs != null && this.Value == rhs.Value;
+        }
     }
+
+
 }
