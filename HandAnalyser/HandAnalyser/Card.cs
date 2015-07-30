@@ -52,11 +52,21 @@ namespace HandAnalyser
             }
         }
 
+        /// <summary>
+        /// Compares the value of 2 cards.
+        /// </summary>
+        /// <param name="rhs"></param>
+        /// <returns>True if both values are equal</returns>
         public bool EqualValue(Card rhs)
         {
-            return rhs != null && this.Value == rhs.Value;
+            return rhs != null && Value == rhs.Value;
         }
 
+        /// <summary>
+        /// Standard implementation based on Card.Value
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public int CompareTo(object obj)
         {
             Card rhs = obj as Card;
